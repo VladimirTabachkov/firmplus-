@@ -18,7 +18,6 @@ public class FilmService {
 
     public Film addfilm(final Film film) {
         validateFilm(film);
-        film.setId((long) films.size());
         films.add(film);
         return film;
     }

@@ -1,6 +1,7 @@
 package ru.jabki.firmplus.model;
 
 import java.time.LocalDate;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class User {
     private Long id;
@@ -8,8 +9,10 @@ public class User {
     private String name;
     private String email;
     private LocalDate birthday;
+    private static AtomicInteger counter = new AtomicInteger(1);
 
     public User(final String name, final String email, final String login, final LocalDate birthday) {
+        this.id = (long) counter.getAndIncrement();
         this.name = name;
         this.email = email;
         this.login = login;
