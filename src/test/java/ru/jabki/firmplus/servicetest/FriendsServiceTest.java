@@ -44,7 +44,7 @@ public class FriendsServiceTest {
                         LocalDate.of(1974, 12, 8)
                 )
         );
-        friendsService = new FriendsService();
+        friendsService = new FriendsService(userService);
         friendsService.addFriend(userService.getbyId(1L).getId(), userService.getbyId(2L).getId());
     }
 

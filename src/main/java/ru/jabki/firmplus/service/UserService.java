@@ -48,7 +48,7 @@ public class UserService {
     }
 
     public User getbyId(final Long id) {
-        return users.stream().filter(f -> Objects.equals(f.getId(), id)).findFirst().orElseThrow(() -> new FilmException("Movie not found"));
+        return users.stream().filter(f -> Objects.equals(f.getId(), id)).findFirst().orElseThrow(() -> new UserException("User not found"));
     }
 
     public void deleteUser(final Long id) {

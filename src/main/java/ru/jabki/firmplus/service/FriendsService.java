@@ -43,11 +43,11 @@ public class FriendsService {
     }
 
     private void validate(Long userId, Long friendId) {
-        if ((userId == null) || (userService.getbyId(userId) == null) {
+        if ((userId == null) || (userService.getbyId(userId) == null)) {
             throw new FriendException("User not found");
         }
 
-        if ((friendId == null) || (userService.getbyId(friendId) == null) {
+        if ((friendId == null) || (userService.getbyId(friendId) == null)) {
             throw new FriendException("Friend not found");
         }
 
