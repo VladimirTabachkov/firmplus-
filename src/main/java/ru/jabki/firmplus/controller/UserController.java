@@ -33,8 +33,8 @@ public class UserController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Получить данные пользователя")
-    public User getById(@PathVariable("id") String id) {
-        return userLogic.getbyId(Long.parseLong(id));
+    public User getById(@PathVariable("id") Long id) {
+        return userLogic.getbyId(id);
     }
 
     @PatchMapping

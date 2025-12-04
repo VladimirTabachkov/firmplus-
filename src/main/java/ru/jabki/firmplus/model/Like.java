@@ -26,4 +26,5 @@ public class Like {
 
     public Long getUserId() {
         return this.userId;
-    }}
+    }
+}

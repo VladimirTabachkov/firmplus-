@@ -38,8 +38,8 @@ public class FilmController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Получить данные фильма")
-    public Film getById(@PathVariable("id") String id) {
-        return filmLogic.getbyId(Long.parseLong(id));
+    public Film getById(@PathVariable("id") Long id) {
+        return filmLogic.getbyId(id);
     }
 
     @PatchMapping
@@ -59,7 +59,7 @@ public class FilmController {
     public List<Film> searchFilm(@RequestParam(required = false) String name,
                                  @RequestParam(required = false) String description,
                                  @RequestParam(required = false) LocalDate releaseDate,
-                                 @RequestParam(required = false) String duration,
+                                 @RequestParam(required = false) Long duration,
                                  @RequestParam(required = false) Set<Genre> genres) {
         return filmLogic.searchFilm(name, description, duration, releaseDate, genres);
     }

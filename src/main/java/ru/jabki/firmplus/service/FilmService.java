@@ -31,8 +31,12 @@ public class FilmService {
     }
 
     public void updateFilm(final Film film) {
+        validateFilm(film);
         Film temp = getbyId(film.getId());
+        temp.setName(film.getName());
         temp.setDescription(film.getDescription());
+        temp.setReleaseDate(film.getReleaseDate());
+        temp.setDuration(film.getDuration());
         temp.setGenres(film.getGenres());
     }
 
@@ -51,10 +55,10 @@ public class FilmService {
         }
     }
 
-    public List<Film> searchFilm(String name, String description, String duration, LocalDate localdate, Set<Genre> genres) {
+    public List<Film> searchFilm(String name, String description, Long duration, LocalDate localdate, Set<Genre> genres) {
         return films.stream().filter(f -> (!StringUtils.hasText(name) || f.getName().toLowerCase().contains(name.toLowerCase())) &&
                 (!StringUtils.hasText(description) || f.getDescription().toLowerCase().contains(description.toLowerCase())) &&
-                (!StringUtils.hasText(duration) || Objects.equals(f.getDuration(), Long.parseLong(duration))) &&
+                ((duration == 0) || Objects.equals(f.getDuration(), duration)) &&
                 (localdate == null || Objects.equals(f.getReleaseDate(), localdate)) &&
                 (genres == null || f.getGenres().equals(genres))).toList();
     }
