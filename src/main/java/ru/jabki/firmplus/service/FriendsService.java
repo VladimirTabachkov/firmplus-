@@ -15,8 +15,10 @@ public class FriendsService {
         this.friendList = new ArrayList<>();
     }
 
-    public void addFriend(Long userId, Long friendId) {
-        friendList.add(new Friend(userId, friendId));
+    public Friend addFriend(Long userId, Long friendId) {
+        Friend friend = new Friend(userId, friendId);
+        friendList.add(friend);
+        return friend;
     }
 
     public void delete(Long userId, Long friendId) {
